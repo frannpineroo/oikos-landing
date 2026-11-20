@@ -345,6 +345,135 @@ footer .wordmark{color:var(--ink-fg);font-size:15px}
 .stat-sub{font-size:14px;color:var(--muted);line-height:1.4}
 #impuestos .sec-head h2{font-size:clamp(32px,3.6vw,48px)}
 @media (max-width:420px){ .stats-row{grid-template-columns:1fr} }
+
+/* ===== v8: identidad por sección ===== */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.hero2{padding-block:90px 0;position:relative;overflow:hidden}
+.greek{position:absolute;right:-1vw;top:0;font-family:var(--display);font-size:clamp(90px,14vw,200px);line-height:1;color:transparent;-webkit-text-stroke:1.2px var(--line-strong);opacity:.8;pointer-events:none;user-select:none;letter-spacing:-.02em}
+.hero2-top{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:end;position:relative}
+.hero2 h1{font-size:clamp(44px,6vw,88px);line-height:1}
+.hero2 h1 em{font-style:normal;color:var(--indigo)}
+.hero2 .lead{font-size:19px;color:var(--muted)}
+.hero2 .ctas{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.etym{margin-top:36px;font-size:14px;color:var(--soft);border-top:1px solid var(--line-strong);padding-top:14px;max-width:none}
+.etym span{font-family:var(--display);font-style:italic;color:var(--fg);font-size:17px}
+.hero2-stage{perspective:1800px;margin-top:56px}
+.hero-tilt{transform-origin:50% 0;transform:rotateX(var(--tilt,22deg)) scale(var(--sc,.92));transition:transform .1s linear;box-shadow:0 60px 90px -50px rgba(20,23,28,.45)}
+.hero-tilt .fit{aspect-ratio:16/10;flex:none}
+.proof2{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;padding-bottom:30px}
+.proof2 div{padding:18px 18px 0 0;border-top:2px solid var(--fg);display:flex;flex-direction:column;gap:4px}
+.proof2 div + div{padding-left:18px}
+.proof2 strong{font-family:var(--mono);font-weight:500;font-size:26px}
+.proof2 span{font-size:14px;color:var(--muted)}
+@media (max-width:860px){ .hero2-top{grid-template-columns:1fr;gap:24px} .proof2{grid-template-columns:1fr 1fr;row-gap:24px} .proof2 div + div{padding-left:0} }
+
+/* horizontal */
+.hscroll{height:300vh;position:relative;background:var(--surface);border-block:1px solid var(--line)}
+.hs-sticky{position:sticky;top:var(--nav);height:calc(100vh - var(--nav));overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:36px}
+.hs-head{display:flex;justify-content:space-between;align-items:baseline;width:100%;font-size:15px;color:var(--muted)}
+.hs-count{font-size:14px;color:var(--soft)} .hs-count b{color:var(--indigo);font-weight:500;font-size:22px}
+.hs-track{display:flex;gap:20px;padding-left:max(24px,calc((100vw - 1200px)/2 + 24px));will-change:transform}
+.hs-card{flex:none;width:min(80vw,500px);min-height:min(48vh,360px);border:1.5px solid var(--line-strong);border-radius:20px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;background:var(--bg)}
+.hs-strike{font-family:var(--display);font-size:clamp(18px,1.8vw,24px);line-height:1;color:var(--soft);text-decoration:line-through;text-decoration-color:var(--rojo);text-decoration-thickness:3px;align-self:flex-start}
+.hs-card h3{font-size:clamp(26px,2.8vw,38px);line-height:1.1;max-width:14em}
+.hs-card h3 b{display:block;color:var(--indigo);font-size:.5em;letter-spacing:.06em;margin-bottom:.35em;font-family:var(--brand);font-weight:700}
+.hs-card p{margin-top:auto;font-size:15.5px;color:var(--muted);padding-top:18px;border-top:1px dashed var(--line-strong)}
+.hs-final{background:var(--ink);color:var(--ink-fg);border-color:var(--ink)}
+.hs-final .hs-wm{font-size:clamp(36px,4.5vw,60px);letter-spacing:.14em}
+.hs-final p{color:var(--ink-muted)}
+
+/* ciclo: número gigante */
+.stage-wrap{position:sticky}
+.bignum{position:absolute;left:-0.1em;top:-0.62em;font-size:clamp(120px,14vw,200px);line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--line-strong);z-index:-1;font-weight:500;pointer-events:none}
+
+/* collage */
+.split2{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}
+.split2 .reports{justify-content:flex-start;margin-top:12px}
+.collage{position:relative;padding-bottom:12%}
+.c-back .fit{aspect-ratio:4/3;flex:none}
+.c-front{position:absolute;right:-4%;bottom:0;width:62%;background:var(--surface);border-radius:16px;overflow:hidden;box-shadow:0 40px 70px -30px rgba(20,23,28,.5);border:1px solid var(--line-strong);transform:translate(calc((1 - min(1, var(--p,1) * 1.7)) * 60px), calc((1 - min(1, var(--p,1) * 1.7)) * 90px)) rotate(calc((1 - min(1, var(--p,1) * 1.7)) * 5deg))}
+.c-front img{display:block;width:100%}
+@media (max-width:960px){ .split2{grid-template-columns:1fr} .c-front{right:0} }
+
+/* scanner + wipe */
+.scanner .fit{position:relative}
+.laser{position:absolute;left:0;right:0;height:2px;top:calc(min(1, var(--p,0) * 1.5) * 100%);background:var(--rojo);box-shadow:0 0 14px 2px color-mix(in srgb,var(--rojo) 60%,transparent);opacity:calc(1 - min(1, var(--p,0) * 1.5) * .9)}
+.wipe{margin-top:28px;clip-path:inset(0 calc(100% - min(1, var(--p,1) * 2) * 100%) 0 0 round 16px)}
+
+/* banda oscura */
+.ink{background:var(--ink);color:var(--ink-fg)}
+.ink .screen{border-color:#2c3036}
+.quote-head{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end}
+.quote-head h2{font-size:clamp(44px,6vw,86px);line-height:1}
+.quote-head p{color:var(--ink-muted);font-size:18px}
+.slide-in .from-l{transform:translateX(calc((1 - min(1, var(--p,1) * 2.4)) * -120px));opacity:calc(.3 + min(1, var(--p,1) * 2.4) * .7)}
+.slide-in .from-r{transform:translateX(calc((1 - min(1, var(--p,1) * 2.4)) * 120px));opacity:calc(.3 + min(1, var(--p,1) * 2.4) * .7)}
+.flow-ink{justify-content:center;margin-top:32px;font-size:14px}
+.flow-ink b{border-color:#3a3e45;color:var(--ink-muted)}
+.flow-ink b.on{color:#fff;background:var(--indigo);border-color:var(--indigo)}
+@media (max-width:960px){ .quote-head{grid-template-columns:1fr;gap:16px} }
+
+/* portal */
+.portal2{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.who2{margin:20px 0 0;display:grid;gap:6px}
+.who2 dt{font-family:var(--display);font-size:22px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line-strong)}
+.who2 dd{margin:0;color:var(--muted)}
+.phones2{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.phones2 .phone{margin:0}
+.phones2{align-items:stretch;transform:translateY(calc((0.5 - var(--p,.5)) * 70px))}
+@media (max-width:960px){ .portal2{grid-template-columns:1fr} }
+
+/* índice editorial */
+.idx-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--fg);padding-bottom:18px}
+.idx-head h2{font-size:clamp(44px,6vw,84px)}
+.idx-head .num{color:var(--soft)}
+.idx{list-style:none;margin:0;padding:0}
+.idx li{display:grid;grid-template-columns:70px 1.1fr 1fr 30px;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line-strong);position:relative;transition:padding .3s}
+.idx li::after{content:"→";color:var(--indigo);font-size:22px;transition:transform .3s}
+.idx li:hover{padding-left:14px}
+.idx li:hover::after{transform:translateX(8px)}
+.idx .num{color:var(--indigo);font-size:14px}
+.idx h3{font-size:clamp(26px,3vw,40px)}
+.idx p{color:var(--muted)}
+@media (max-width:760px){ .idx li{grid-template-columns:40px 1fr} .idx p{grid-column:2} .idx li::after{display:none} }
+
+/* sticky texto */
+.sticky2{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.sticky2-text{position:sticky;top:calc(var(--nav) + 12vh);display:flex;flex-direction:column;gap:18px}
+.sticky2-text h2{font-size:clamp(34px,4.2vw,56px)}
+.facts{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.facts li{color:var(--muted);padding-left:16px;border-left:2px solid var(--indigo)}
+.facts b{color:var(--fg)}
+.sticky2-shots{display:flex;flex-direction:column;gap:40px}
+.sticky2-shots .fit{aspect-ratio:4/3;flex:none}
+@media (max-width:960px){ .sticky2{grid-template-columns:1fr} .sticky2-text{position:static} }
+
+/* timeline */
+.tl{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:72px;padding-top:40px}
+.tl-line{position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line-strong)}
+.tl-line i{display:block;height:100%;background:var(--indigo);transform-origin:left;transform:scaleX(min(1, var(--p,1) * 1.7))}
+.tl-step{display:flex;flex-direction:column;gap:8px;position:relative}
+.tl-step .dot{position:absolute;top:-40px;left:0;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--line-strong);transition:background .3s,border-color .3s}
+.tl-step.on .dot{background:var(--indigo);border-color:var(--indigo)}
+.tl-step .num{font-size:12.5px;color:var(--indigo);letter-spacing:.08em;text-transform:uppercase}
+.tl-step b{font-family:var(--display);font-size:24px;line-height:1.15}
+.tl-step p{color:var(--muted);font-size:15.5px}
+@media (max-width:760px){ .tl{grid-template-columns:1fr 1fr;row-gap:56px} }
+
+/* CTA gigante */
+.final{overflow:hidden}
+.giant{overflow:hidden;font-family:var(--display);font-size:clamp(44px,6.5vw,96px);line-height:1.15;margin-bottom:48px;color:var(--ink-fg)}
+.giant-track{display:flex;width:max-content;animation:giant 38s linear infinite}
+.giant-track span,.giant-track i{white-space:nowrap;padding-right:.45em;font-style:normal}
+.giant-track i{color:var(--indigo)}
+@keyframes giant{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){ .giant-track{animation:none} }
+
+@media (prefers-reduced-motion: reduce){
+  .hscroll{height:auto} .hs-sticky{position:static;height:auto;padding-block:80px} .hs-track{flex-wrap:wrap;transform:none!important}
+  .hero-tilt{transform:none!important}
+}
+
 /* animaciones de entrada */
 .js .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
@@ -393,28 +522,30 @@ section,header{position:relative}
 </nav>
 
 <!-- S1 HERO -->
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Software de administración inmobiliaria</div>
-      <h1 style="margin-top:20px">Gestión integral de alquileres, <em>de punta a punta.</em></h1>
-      <p class="lead">Contratos, ajustes por índice, cobranza, facturación ARCA y liquidación a propietarios en una sola plataforma.</p>
-      <div class="ctas">
-        <a class="btn btn-primary" href="#demo">Pedí una demo</a>
-        <a class="btn btn-ghost" href="#ciclo">Ver cómo funciona</a>
-      </div>
-      <div class="proof">
-        <div><strong data-count="29">29</strong>impuestos y servicios precargados</div>
-        <div><strong>A · B · C</strong>facturas y notas de crédito ARCA</div>
-        <div><strong>1 CVU</strong>por inquilino para cobrar</div>
+<header class="hero2">
+  <div class="wrap">
+    <div class="greek" aria-hidden="true">οἶκος</div>
+    <div class="hero2-top">
+      <h1>Gestión integral de alquileres, <em>de punta a punta.</em></h1>
+      <div class="hero2-side">
+        <p class="lead">Contratos, ajustes por índice, cobranza, facturación ARCA y liquidación a propietarios en una sola plataforma.</p>
+        <div class="ctas"><a class="btn btn-primary" href="#demo">Pedí una demo</a><a class="btn btn-ghost" href="#ciclo">Ver cómo funciona</a></div>
       </div>
     </div>
-    <div class="screen img hero-screen hero-shot" id="heroScreen"><div class="screen-bar"><i></i><i></i><i></i><span>oikos / inicio</span></div><div class="fit"><img src="capturas/dashboard.webp" alt="Inicio de OIKOS con accesos, morosos, impuestos, contratos e índices"></div></div>
+    <p class="etym"><span>oîkos</span> · del griego: casa, hogar. La administración entera de tu inmobiliaria, bajo un mismo techo.</p>
+  </div>
+  <div class="hero2-stage wrap">
+    <div class="screen img hero-tilt" id="heroTilt"><div class="screen-bar"><i></i><i></i><i></i><span>oikos / inicio</span></div><div class="fit"><img src="capturas/dashboard.webp" alt="Inicio de OIKOS con accesos, morosos, impuestos, contratos e índices"></div></div>
+  </div>
+  <div class="wrap proof2">
+    <div><strong data-count="29">29</strong><span>impuestos y servicios precargados</span></div>
+    <div><strong>A · B · C</strong><span>facturas y notas de crédito ARCA</span></div>
+    <div><strong>1 CVU</strong><span>por inquilino para cobrar</span></div>
+    <div><strong>9:30</strong><span>descarga diaria de SIRO</span></div>
   </div>
 </header>
 
 <div class="integr">
-  <div class="wrap"><div class="small lbl num">CONECTADO CON LO QUE YA USÁS EN CÓRDOBA</div></div>
   <div class="marquee" aria-label="Integraciones"><div class="track">
     <span><b>ARCA</b> facturación electrónica</span><span><b>SIRO</b> cobranza diaria</span><span><b>Banco Roela</b> CVU y TIM</span><span><b>Galicia</b> cupones</span><span><b>Rentas Córdoba</b> por partida</span><span><b>EPEC</b> por NIS</span><span><b>Aguas Cordobesas</b></span><span><b>Ecogas</b></span><span><b>Municipalidad de Córdoba</b></span><span><b>Excel</b> import y export</span>
     <span><b>ARCA</b> facturación electrónica</span><span><b>SIRO</b> cobranza diaria</span><span><b>Banco Roela</b> CVU y TIM</span><span><b>Galicia</b> cupones</span><span><b>Rentas Córdoba</b> por partida</span><span><b>EPEC</b> por NIS</span><span><b>Aguas Cordobesas</b></span><span><b>Ecogas</b></span><span><b>Municipalidad de Córdoba</b></span><span><b>Excel</b> import y export</span>
@@ -422,14 +553,15 @@ section,header{position:relative}
 </div>
 
 <!-- S2 PROBLEMA -->
-<section class="alt sec">
-  <div class="wrap">
-    <p class="reveal-text" id="revealText">La planilla del ajuste. El sistema viejo para facturar. El home banking para conciliar. El WhatsApp del inquilino. OIKOS reemplaza todo eso con una sola plataforma.</p>
-    <div class="pains">
-      <div class="pain rv"><span class="k">Planilla</span><b>Ajustes IPC e ICL calculados a mano</b><p><em>En OIKOS:</em> cargás el índice y se ajustan todos los contratos.</p></div>
-      <div class="pain rv" style="--d:.1s"><span class="k">Sistema viejo</span><b>Facturas una por una</b><p><em>En OIKOS:</em> lote completo a ARCA en segundo plano.</p></div>
-      <div class="pain rv" style="--d:.2s"><span class="k">Home banking</span><b>Transferencias sin saber de quién son</b><p><em>En OIKOS:</em> cada inquilino paga a su propio CVU.</p></div>
-      <div class="pain rv" style="--d:.3s"><span class="k">WhatsApp</span><b>Reclamos perdidos en el chat</b><p><em>En OIKOS:</em> ticket con fotos, responsable y estado.</p></div>
+<section class="hscroll" id="problema" data-pin>
+  <div class="hs-sticky">
+    <div class="hs-head wrap"><span class="hs-count num"><b id="hsNow">01</b> / 05</span><span>Así se administra hoy</span></div>
+    <div class="hs-track" id="hsTrack">
+      <article class="hs-card"><span class="hs-strike">Planilla</span><h3><b>Con OIKOS</b> cargás el índice del mes y se ajustan todos los contratos.</h3><p>Ajustes IPC e ICL calculados a mano, contrato por contrato.</p></article>
+      <article class="hs-card"><span class="hs-strike">Sistema viejo</span><h3><b>Con OIKOS</b> el lote completo de facturas sale a ARCA en segundo plano.</h3><p>Facturas emitidas una por una, en otro programa.</p></article>
+      <article class="hs-card"><span class="hs-strike">Home banking</span><h3><b>Con OIKOS</b> cada inquilino paga a su propio CVU y el pago se imputa solo.</h3><p>Transferencias que no sabés de quién son.</p></article>
+      <article class="hs-card"><span class="hs-strike">WhatsApp</span><h3><b>Con OIKOS</b> cada reclamo es un ticket con fotos, responsable y estado.</h3><p>Reclamos perdidos entre audios y fotos.</p></article>
+      <article class="hs-card hs-final"><span class="wordmark hs-wm">OIKOS</span><h3>Todo eso, en una sola plataforma.</h3><p>Seguí bajando y mirá un mes completo.</p></article>
     </div>
   </div>
 </section>
@@ -456,7 +588,7 @@ section,header{position:relative}
         <div class="step"><span class="k">06 · Caja</span><h3>Cerrás el día sin diferencias.</h3><p>Caja por usuario y arqueo guiado.</p>
           <ul class="checks"><li>Efectivo, cheques y transferencias</li><li>Cierre en dos pasos</li><li>Libro banco de hasta 365 días</li></ul></div>
       </div>
-      <div class="stage-wrap">
+      <div class="stage-wrap"><div class="bignum num" id="bigNum" aria-hidden="true">01</div>
         <div class="progress" id="progress"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="stage">
           <div class="panel active"><div class="screen img"><div class="screen-bar"><i></i><i></i><i></i><span>contratos / Bv. San Juan 840</span></div><div class="fit"><img src="capturas/contrato-detalle.webp" alt="Ficha de contrato en OIKOS"></div></div></div>
@@ -471,20 +603,17 @@ section,header{position:relative}
   </div>
 </section>
 
-<!-- S4 TABLERO -->
-<section class="alt sec" id="tablero">
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">Día a día</div>
+<!-- S4 AGENDA -->
+<section class="sec alt" id="tablero">
+  <div class="wrap split2">
+    <div class="sec-head">
       <h2>Todo lo que vence, a la vista.</h2>
-      <p>Vencimientos, ajustes y visitas en la agenda. Cualquier persona, inmueble o contrato a un buscador de distancia.</p>
+      <p>Vencimientos, ajustes y visitas aparecen solos en la agenda. Cualquier persona, inmueble o contrato está a un buscador de distancia.</p>
+      <div class="reports"><span>Recupero</span><span>Clasificación contable</span><span>Cobrado y pagado por cuenta</span><span>Cobertura documental</span><span>Libro banco</span><span>Libro IVA</span></div>
     </div>
-    <div class="duo">
-      <div class="screen img rv"><div class="screen-bar"><i></i><i></i><i></i><span>calendario</span></div><div class="fit"><img src="capturas/calendario.webp" alt="Calendario mensual con vencimientos y ajustes" loading="lazy"></div></div>
-      <div class="screen img rv" style="--d:.12s"><div class="screen-bar"><i></i><i></i><i></i><span>buscador</span></div><div class="fit"><img src="capturas/buscador-global.webp" alt="Buscador global con resultados de personas y contratos" loading="lazy"></div></div>
-    </div>
-    <div class="reports">
-      <span>Recupero <em>Excel</em></span><span>Clasificación contable</span><span>Cobrado y pagado por cuenta <em>Excel</em></span><span>Cobertura documental</span><span>Libro banco <em>365 días</em></span><span>Libro IVA <em>Excel</em></span>
+    <div class="collage" data-p>
+      <div class="screen img c-back"><div class="screen-bar"><i></i><i></i><i></i><span>calendario</span></div><div class="fit"><img src="capturas/calendario.webp" alt="Calendario mensual con vencimientos y ajustes" loading="lazy"></div></div>
+      <div class="c-front"><img src="capturas/buscador-modal.webp" alt="Buscador global con resultados agrupados" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -501,115 +630,110 @@ section,header{position:relative}
           <div class="stat"><span class="stat-num" data-count="50">50</span><span class="stat-lbl">boletas por escaneo</span><span class="stat-sub">Pistola, cámara del celular o PDF</span></div>
         </div>
         <ul class="checks" style="margin-top:10px">
-                    <li><span><b>Avance por ente</b> para saber qué boletas faltan cargar</span></li>
+          <li><span><b>Avance por ente</b> para saber qué boletas faltan cargar</span></li>
           <li><span><b>Reparto por días</b> de ocupación entre inquilino y propietario</span></li>
           <li><span><b>Recupero automático</b> con cargo en la cuenta del inquilino</span></li>
           <li><span><b>Pago en lote</b> con caja de origen y talón impreso</span></li>
         </ul>
       </div>
-      <div class="screen img rv"><div class="screen-bar"><i></i><i></i><i></i><span>impuestos / mesa</span></div><div class="fit"><img src="capturas/impuestos-mesa-boletas.webp" alt="Mesa de boletas con avance por ente" loading="lazy"></div></div>
+      <div class="screen img scanner" data-p><div class="screen-bar"><i></i><i></i><i></i><span>impuestos / mesa</span></div><div class="fit"><img src="capturas/impuestos-mesa-boletas.webp" alt="Mesa de boletas con avance por ente" loading="lazy"><i class="laser"></i></div></div>
     </div>
-    <div style="margin-top:24px"><div class="screen img rv wide-shot"><div class="screen-bar"><i></i><i></i><i></i><span>impuestos / planes</span></div><div class="fit"><img src="capturas/impuestos-listado.webp" alt="Planes de impuestos por inmueble con estado al día, con deuda o sin dato" loading="lazy"></div></div></div>
+    <div class="wipe" data-p><div class="screen img wide-shot"><div class="screen-bar"><i></i><i></i><i></i><span>impuestos / planes</span></div><div class="fit"><img src="capturas/impuestos-listado.webp" alt="Planes de impuestos por inmueble con estado al día, con deuda o sin dato" loading="lazy"></div></div></div>
   </div>
 </section>
 
 <!-- S6 RECLAMOS -->
-<section class="alt sec" id="reclamos">
+<section class="sec ink" id="reclamos">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Reclamos y mantenimiento</div>
-      <h2>Del "se rompió algo" a la factura del plomero.</h2>
-      <p>Cada arreglo con número, prioridad, responsable, visita y quién paga. Las notas internas no las ve el inquilino.</p>
+    <div class="quote-head">
+      <h2>“Se rompió el calefón.”</h2>
+      <p>De ese mensaje a la factura del plomero, todo queda en un ticket: número, prioridad, responsable, visita y quién paga. Las notas internas el inquilino no las ve.</p>
     </div>
-    <div class="duo">
-      <div class="screen img rv"><div class="screen-bar"><i></i><i></i><i></i><span>reclamos</span></div><div class="fit"><img src="capturas/reclamos-tablero.webp" alt="Listado de reclamos por estado" loading="lazy"></div></div>
-      <div class="screen img rv" style="--d:.12s"><div class="screen-bar"><i></i><i></i><i></i><span>reclamos / detalle</span></div><div class="fit"><img src="capturas/reclamo-detalle-chat.webp" alt="Reclamo con chat y nota interna" loading="lazy"></div></div>
+    <div class="duo slide-in" data-p>
+      <div class="screen img from-l"><div class="screen-bar"><i></i><i></i><i></i><span>reclamos</span></div><div class="fit"><img src="capturas/reclamos-tablero.webp" alt="Listado de reclamos por estado" loading="lazy"></div></div>
+      <div class="screen img from-r"><div class="screen-bar"><i></i><i></i><i></i><span>reclamos / detalle</span></div><div class="fit"><img src="capturas/reclamo-detalle-chat.webp" alt="Reclamo con chat y nota interna" loading="lazy"></div></div>
     </div>
-    <div class="flow" style="justify-content:center;margin-top:28px;font-size:14px"><b>Pendiente de factura</b>→<b>Facturado</b>→<b class="on">Auditado</b>→<b>Liberado</b></div>
+    <div class="flow flow-ink"><b>Pendiente de factura</b>→<b>Facturado</b>→<b class="on">Auditado</b>→<b>Liberado</b></div>
   </div>
 </section>
 
 <!-- S7 PORTAL -->
 <section class="sec" id="portal">
-  <div class="wrap">
-    <div class="sec-head center">
+  <div class="wrap portal2">
+    <div class="sec-head">
       <div class="eyebrow">Portal para tus clientes</div>
       <h2>Menos llamadas. Tus clientes se atienden solos.</h2>
       <p>Cada inquilino y propietario entra con su documento, por invitación de la inmobiliaria.</p>
+      <dl class="who2">
+        <dt>Inquilinos</dt><dd>Ven saldo y vencimiento, pagan a su CVU, informan transferencias, bajan comprobantes y abren reclamos con fotos.</dd>
+        <dt>Propietarios</dt><dd>Ven cada liquidación con el detalle de honorarios, arreglos e impuestos, y descargan el PDF.</dd>
+      </dl>
     </div>
-    <div class="phones">
-      <div class="phone img rv"><img src="capturas/portal-inquilino-inicio.webp" alt="Portal del inquilino: saldo, reclamos, servicios y contrato"></div>
-      <div class="phone img rv" style="--d:.12s"><img src="capturas/portal-inquilino-reclamo.webp" alt="Reclamo visto por el inquilino"></div>
-      <div class="phone img rv" style="--d:.24s"><img src="capturas/portal-propietario-liquidaciones.webp" alt="Liquidaciones vistas por el propietario"></div>
-    </div>
-    <div class="roles">
-      <div class="card rv"><span class="k">Inquilinos</span><h3>Todo su alquiler, en el bolsillo</h3>
-        <ul class="checks"><li>Ven saldo, vencimiento y su CVU para pagar</li><li>Informan transferencias con el comprobante</li><li>Descargan comprobantes en PDF</li><li>Abren reclamos con fotos o video y chatean</li><li>Suben boletas de servicios para que las revises</li></ul></div>
-      <div class="card rv" style="--d:.12s"><span class="k">Propietarios</span><h3>Cada peso, explicado</h3>
-        <ul class="checks"><li>Historial de liquidaciones con PDF</li><li>Detalle de honorarios, arreglos e impuestos</li><li>Sus contratos y porcentaje de titularidad</li><li>Servicios e impuestos a su cargo</li><li>Varias propiedades en una sola cuenta</li></ul></div>
+    <div class="phones2" data-p>
+      <div class="phone img ph1"><img src="capturas/portal-inquilino-inicio.webp" alt="Portal del inquilino: saldo, reclamos, servicios y contrato" loading="lazy"></div>
+      <div class="phone img ph2"><img src="capturas/portal-inquilino-reclamo.webp" alt="Reclamo visto por el inquilino" loading="lazy"></div>
+      <div class="phone img ph3"><img src="capturas/portal-propietario-liquidaciones.webp" alt="Liquidaciones vistas por el propietario" loading="lazy"></div>
     </div>
   </div>
 </section>
 
 <!-- S8 MÓDULOS -->
-<section class="alt sec" id="modulos">
+<section class="sec alt" id="modulos">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Y además</div>
-      <h2>Las herramientas que tu equipo usa todos los días.</h2>
-    </div>
-    <div class="bento">
-      <div class="card rv"><span class="k">Consulta crediticia</span><h3>Evaluá al inquilino antes de firmar</h3><p>Desde la ficha de la persona.</p></div>
-      <div class="card rv" style="--d:.1s"><span class="k">Comisiones</span><h3>Planes de pagarés con su cartera</h3><p>Cuotas, recargos y vencimientos a la vista.</p></div>
-      <div class="card rv" style="--d:.2s"><span class="k">Email propio</span><h3>Avisos con el nombre de tu inmobiliaria</h3><p>Plantillas y bitácora de envíos.</p></div>
-      <div class="card rv"><span class="k">Inmuebles compuestos</span><h3>Local + cochera, un solo contrato</h3><p>Sin duplicar cargos ni liquidaciones.</p></div>
-      <div class="card rv" style="--d:.1s"><span class="k">Proveedores</span><h3>Órdenes de pago por inmueble</h3><p>Cada arreglo imputado donde corresponde.</p></div>
-      <div class="card rv" style="--d:.2s"><span class="k">Importadores</span><h3>Excel y TXT de bancos</h3><p>SIRO, TIM de Roela y cupones Galicia.</p></div>
-    </div>
+    <div class="idx-head"><h2>Y además.</h2><span class="num">06 módulos</span></div>
+    <ol class="idx">
+      <li class="rv"><span class="num">01</span><h3>Consulta crediticia</h3><p>Evaluá al inquilino antes de firmar, desde la ficha de la persona.</p></li>
+      <li class="rv"><span class="num">02</span><h3>Comisiones y pagarés</h3><p>Planes en cuotas con recargos y vencimientos a la vista.</p></li>
+      <li class="rv"><span class="num">03</span><h3>Email propio</h3><p>Avisos con el nombre de tu inmobiliaria, plantillas y bitácora de envíos.</p></li>
+      <li class="rv"><span class="num">04</span><h3>Inmuebles compuestos</h3><p>Local más cochera en un solo contrato, sin duplicar cargos.</p></li>
+      <li class="rv"><span class="num">05</span><h3>Proveedores</h3><p>Órdenes de pago imputadas al inmueble que corresponde.</p></li>
+      <li class="rv"><span class="num">06</span><h3>Importadores</h3><p>Excel, SIRO, TIM de Roela y cupones Galicia.</p></li>
+    </ol>
   </div>
 </section>
 
 <!-- S9 SEGURIDAD -->
 <section class="sec" id="seguridad">
-  <div class="wrap">
-    <div class="sec-head center">
+  <div class="wrap sticky2">
+    <div class="sticky2-text">
       <div class="eyebrow">Control</div>
       <h2>Cada uno ve lo suyo. Todo queda registrado.</h2>
+      <ul class="facts">
+        <li><b>Roles a medida.</b> Permisos por módulo para cobranza, mantenimiento o administración.</li>
+        <li><b>Reglas propias.</b> Mora, honorarios y recargos configurados una vez para toda la cartera.</li>
+        <li><b>Datos aislados.</b> Cada inmobiliaria separada a nivel de base de datos, con certificados ARCA cifrados.</li>
+      </ul>
     </div>
-    <div class="duo">
+    <div class="sticky2-shots">
       <div class="screen img rv"><div class="screen-bar"><i></i><i></i><i></i><span>configuración / roles</span></div><div class="fit"><img src="capturas/roles-permisos.webp" alt="Editor de rol con permisos por módulo" loading="lazy"></div></div>
-      <div class="screen img rv" style="--d:.12s"><div class="screen-bar"><i></i><i></i><i></i><span>configuración / mora</span></div><div class="fit"><img src="capturas/config.webp" alt="Configuración de mora: tasa diaria, vencimiento y días de gracia" loading="lazy"></div></div>
-    </div>
-    <div class="sec-grid">
-      <div class="card rv"><span class="k">Datos separados</span><h3>Cada inmobiliaria, aislada</h3><p>Tus datos viven separados a nivel de base de datos.</p></div>
-      <div class="card rv" style="--d:.1s"><span class="k">Credenciales</span><h3>Certificados ARCA cifrados</h3><p>Solo el administrador puede gestionarlos.</p></div>
-      <div class="card rv" style="--d:.2s"><span class="k">Auditoría</span><h3>Quién cambió qué y cuándo</h3><p>Por entidad, usuario y fecha.</p></div>
+      <div class="screen img rv"><div class="screen-bar"><i></i><i></i><i></i><span>configuración / mora</span></div><div class="fit"><img src="capturas/config.webp" alt="Configuración de mora: tasa diaria, vencimiento y días de gracia" loading="lazy"></div></div>
     </div>
   </div>
 </section>
 
 <!-- S10 MIGRACIÓN -->
-<section class="alt sec" id="migracion">
+<section class="sec alt" id="migracion">
   <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">Migración</div>
+    <div class="sec-head">
       <h2>Te mudamos sin frenar la operación.</h2>
       <p>Hoy hay inmobiliarias con cientos de contratos migrando a OIKOS.</p>
     </div>
-    <div class="migr-grid">
-      <div class="mstep rv"><span class="n">01</span><b>Traemos tus datos</b><p>Desde tu sistema actual, Excel o los TXT de tu banco.</p></div>
-      <div class="mstep rv" style="--d:.12s"><span class="n">02</span><b>Corremos en paralelo</b><p>Comparás saldos contrato por contrato antes de cambiar.</p></div>
-      <div class="mstep rv" style="--d:.24s"><span class="n">03</span><b>Capacitamos al equipo</b><p>Por rol, con tus propios contratos.</p></div>
-      <div class="mstep rv" style="--d:.36s"><span class="n">04</span><b>Apagás lo viejo</b><p>Cuando todo coincide, operás solo en OIKOS.</p></div>
+    <div class="tl" id="tl" data-p>
+      <div class="tl-line"><i></i></div>
+      <div class="tl-step"><span class="dot"></span><span class="num">Semana 1</span><b>Traemos tus datos</b><p>Desde tu sistema actual, Excel o los TXT de tu banco.</p></div>
+      <div class="tl-step"><span class="dot"></span><span class="num">Semana 2</span><b>Corremos en paralelo</b><p>Comparás saldos contrato por contrato.</p></div>
+      <div class="tl-step"><span class="dot"></span><span class="num">Semana 3</span><b>Capacitamos al equipo</b><p>Por rol, con tus propios contratos.</p></div>
+      <div class="tl-step"><span class="dot"></span><span class="num">Listo</span><b>Apagás lo viejo</b><p>Cuando todo coincide, operás solo en OIKOS.</p></div>
     </div>
   </div>
 </section>
 
 <!-- S11 CTA -->
 <section class="final sec" id="demo">
+  <div class="giant" aria-hidden="true"><div class="giant-track"><span>Mostranos cómo trabajás hoy</span><i>·</i><span>Mostranos cómo trabajás hoy</span><i>·</i><span>Mostranos cómo trabajás hoy</span><i>·</i><span>Mostranos cómo trabajás hoy</span><i>·</i></div></div>
   <div class="wrap">
     <div class="sec-head center">
-      <h2>Mostranos cómo trabajás hoy.</h2>
+      <h2 class="sr">Mostranos cómo trabajás hoy.</h2>
       <p>En una demo de 30 minutos te mostramos un mes completo de tu inmobiliaria en OIKOS.</p>
       <div class="ctas"><a class="btn btn-primary" href="#demo">Agendar demo</a><a class="btn btn-ghost" href="#demo">Escribinos por WhatsApp</a></div>
       <div class="incl"><span>✓ Migración incluida</span><span>✓ Capacitación por rol</span><span>✓ Soporte en Córdoba</span></div>
@@ -638,14 +762,6 @@ section,header{position:relative}
   var ch = document.getElementById('chart30');
   if (ch) ch.innerHTML = vals.map(function(v,i){ return '<i' + (i % 7 === 5 || i % 7 === 6 ? ' class="alt"' : '') + ' style="--s:' + (v/100) + ';--dl:' + (i*0.025) + 's"></i>'; }).join('');
 
-  // texto que se revela
-  var rt = document.getElementById('revealText');
-  var words = rt.textContent.trim().split(/\s+/), hlFrom = words.indexOf('OIKOS');
-  rt.innerHTML = words.map(function(w,i){ return '<span class="w' + (i >= hlFrom ? ' hl' : '') + '">' + w + '</span>'; }).join(' ');
-  var spans = rt.querySelectorAll('.w');
-  if (reduce) spans.forEach(function(s){ s.classList.add('on'); });
-
-  var hs = document.getElementById('heroScreen');
 
   // ciclo
   var steps = document.querySelectorAll('.step');
@@ -666,12 +782,6 @@ section,header{position:relative}
     steps.forEach(function(s,k){ if (s.getBoundingClientRect().top < mid) best = k; });
     setStep(best);
     if (reduce) return;
-    var r = rt.getBoundingClientRect();
-    var prog = Math.min(1, Math.max(0, (vh * 0.8 - r.top) / (r.height + vh * 0.3)));
-    var n = Math.round(prog * spans.length);
-    spans.forEach(function(s,k){ s.classList.toggle('on', k < n); });
-    var y = Math.min(window.scrollY, 700);
-    hs.style.transform = 'translateY(' + (y * -0.08) + 'px) rotate(' + (y * -0.002) + 'deg)';
   }
 
   if (!reduce && 'IntersectionObserver' in window) {
@@ -694,6 +804,36 @@ section,header{position:relative}
     }, {threshold:.6});
     document.querySelectorAll('[data-count]').forEach(function(el){ co.observe(el); });
   }
+
+
+  // v8: progreso de scroll por elemento
+  var pEls = document.querySelectorAll('[data-p]');
+  var tilt = document.getElementById('heroTilt');
+  var hsSec = document.getElementById('problema'), hsTrack = document.getElementById('hsTrack'), hsNow = document.getElementById('hsNow');
+  var bigNum = document.getElementById('bigNum');
+  var tlSteps = document.querySelectorAll('.tl-step');
+  function fx(){
+    var vh = window.innerHeight;
+    if (reduce) { tlSteps.forEach(function(t){ t.classList.add('on'); }); return; }
+    pEls.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      var pr = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+      el.style.setProperty('--p', pr.toFixed(4));
+      if (el.id === 'tl') { var q = Math.min(1, pr * 1.7); tlSteps.forEach(function(t,k){ t.classList.toggle('on', q >= k / 3 - 0.01); }); }
+    });
+    var y = window.scrollY, k = Math.min(1, y / (vh * 0.7));
+    tilt.style.setProperty('--tilt', (22 * (1 - k)).toFixed(2) + 'deg');
+    tilt.style.setProperty('--sc', (0.92 + 0.08 * k).toFixed(4));
+    var r2 = hsSec.getBoundingClientRect(), span = r2.height - (vh - 68);
+    var pin = Math.min(1, Math.max(0, -r2.top / span));
+    var max = hsTrack.scrollWidth - window.innerWidth + 48;
+    hsTrack.style.transform = 'translateX(' + (-pin * Math.max(0, max)).toFixed(1) + 'px)';
+    hsNow.textContent = '0' + Math.min(5, Math.floor(pin * 4.999) + 1);
+    if (bigNum) bigNum.textContent = '0' + (current + 1);
+  }
+  window.addEventListener('scroll', function(){ requestAnimationFrame(fx); }, {passive:true});
+  window.addEventListener('resize', fx);
+  fx();
 
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', onScroll);
