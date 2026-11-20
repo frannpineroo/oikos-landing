@@ -476,6 +476,25 @@ footer .wordmark{color:var(--ink-fg);font-size:15px}
   .hero-tilt{transform:none!important}
 }
 
+
+/* ===== celulares realistas ===== */
+.phones2 .phone.img{position:relative;padding:6px;border:0;border-radius:44px;background:linear-gradient(150deg,#3a3f47 0%,#16181c 35%,#0c0d10 70%,#2a2e35 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 0 1px rgba(0,0,0,.25),0 40px 70px -35px rgba(20,23,28,.55);overflow:visible}
+.phones2 .phone.img img{border-radius:38px;border-top:34px solid #16233a;aspect-ratio:auto!important;height:auto}
+.phones2 .phone.img::before{content:"";position:absolute;top:15px;left:50%;transform:translateX(-50%);width:30%;height:17px;border-radius:12px;background:#0a0b0d;z-index:2}
+.phones2 .phone.img::after{content:"";position:absolute;right:-2px;top:24%;width:3px;height:11%;border-radius:0 2px 2px 0;background:#2a2e35;box-shadow:-1px 0 0 rgba(255,255,255,.08)}
+
+/* ===== fondo en movimiento ===== */
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bgfx canvas{position:absolute;inset:0;width:100%;height:100%}
+.bgfx .g{position:absolute;width:55vw;height:55vw;border-radius:50%;filter:blur(70px);opacity:.5}
+.bgfx .g1{background:radial-gradient(circle,color-mix(in srgb,var(--indigo) 22%,transparent),transparent 65%);top:-15vw;left:-10vw;animation:drift1 46s ease-in-out infinite alternate}
+.bgfx .g2{background:radial-gradient(circle,color-mix(in srgb,var(--miel) 18%,transparent),transparent 65%);bottom:-20vw;right:-12vw;animation:drift2 54s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(28vw,22vh) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-30vw,-26vh) scale(1.1)}}
+body{background:var(--bg)}
+.alt,.hscroll{background:color-mix(in srgb,var(--surface) 70%,transparent)}
+@media (prefers-reduced-motion: reduce){ .bgfx .g{animation:none} }
+
 /* animaciones de entrada */
 .js .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
@@ -501,6 +520,8 @@ section,header{position:relative}
 </style>
 </head>
 <body>
+
+<div class="bgfx" aria-hidden="true"><i class="g g1"></i><i class="g g2"></i><canvas id="dots"></canvas></div>
 
 <nav>
   <div class="wrap">
@@ -807,6 +828,45 @@ section,header{position:relative}
     document.querySelectorAll('[data-count]').forEach(function(el){ co.observe(el); });
   }
 
+
+
+  // fondo: campo de puntos que ondula solo y reacciona al mouse
+  (function(){
+    var cv = document.getElementById('dots'); if (!cv) return;
+    var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1);
+    var gap = 34, mx = -9999, my = -9999, tx = -9999, ty = -9999, base = '#8a919b', acc = '#3f6fd8', t0 = performance.now(), frame = 0;
+    function colors(){ var cs = getComputedStyle(root); base = cs.getPropertyValue('--soft').trim() || base; acc = cs.getPropertyValue('--indigo').trim() || acc; }
+    function size(){ W = window.innerWidth; H = window.innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr,0,0,dpr,0,0); gap = W < 700 ? 30 : 34; }
+    size(); colors();
+    window.addEventListener('resize', size);
+    window.addEventListener('pointermove', function(e){ tx = e.clientX; ty = e.clientY; }, {passive:true});
+    document.addEventListener('pointerleave', function(){ tx = ty = -9999; });
+    new MutationObserver(colors).observe(root, {attributes:true, attributeFilter:['data-theme']});
+    function draw(now){
+      var t = (now - t0) / 1000;
+      mx += (tx - mx) * 0.12; my += (ty - my) * 0.12;
+      if (tx < -999) { mx = my = -9999; }
+      ctx.clearRect(0,0,W,H);
+      var R = 170, R2 = R*R;
+      for (var y = gap/2; y < H + gap; y += gap) {
+        for (var x = gap/2; x < W + gap; x += gap) {
+          var wave = Math.sin(t*0.6 + x*0.012 + y*0.008) * Math.cos(t*0.4 + y*0.01);
+          var px = x + wave*3, py = y + Math.sin(t*0.5 + x*0.01)*3;
+          var dx = px - mx, dy = py - my, d2 = dx*dx + dy*dy, k = 0;
+          if (d2 < R2) { k = 1 - Math.sqrt(d2)/R; k = k*k; px += dx*k*0.25; py += dy*k*0.25; }
+          var r = 1 + (wave+1)*0.35 + k*2.2;
+          ctx.globalAlpha = 0.16 + (wave+1)*0.06 + k*0.6;
+          ctx.fillStyle = k > 0.05 ? acc : base;
+          ctx.beginPath(); ctx.arc(px, py, r, 0, 6.283); ctx.fill();
+        }
+      }
+      ctx.globalAlpha = 1;
+      if (!document.hidden) requestAnimationFrame(draw);
+    }
+    if (reduce) { draw(t0); return; }
+    requestAnimationFrame(draw);
+    document.addEventListener('visibilitychange', function(){ if (!document.hidden) requestAnimationFrame(draw); });
+  })();
 
   // v8: progreso de scroll por elemento
   var pEls = document.querySelectorAll('[data-p]');
