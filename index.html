@@ -318,6 +318,33 @@ footer{background:var(--ink);color:var(--ink-muted);border-top:1px solid color-m
 footer .wrap{display:flex;justify-content:space-between;gap:20px;padding-block:28px;flex-wrap:wrap}
 footer .wordmark{color:var(--ink-fg);font-size:15px}
 
+
+/* capturas reales */
+.screen.img{background:var(--surface)}
+.fit{flex:1;min-height:0;overflow:hidden;background:#f3f6f9}
+.fit img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
+.hero-shot .fit{aspect-ratio:16/10;flex:none}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px;align-items:start}
+.duo{align-items:stretch}
+.duo .fit{aspect-ratio:4/3;flex:none}
+.split > .screen.img .fit{aspect-ratio:4/3;flex:none}
+.wide-shot .fit{aspect-ratio:2/1;flex:none}
+.stage-wrap{height:auto}
+.stage{flex:none;aspect-ratio:1000/915}
+.panel .fit img{object-fit:contain;object-position:center top}
+.phone.img{padding:10px;background:var(--fg);border-color:var(--fg);overflow:hidden}
+.phone.img img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:30px}
+.bento .card{grid-column:span 2;min-height:220px}
+.bento .card p{margin-top:auto}
+@media (max-width:960px){ .duo{grid-template-columns:1fr} }
+
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.stat{border:1.5px solid var(--line-strong);border-radius:16px;padding:20px 22px;background:var(--surface);display:flex;flex-direction:column;gap:4px;min-width:0}
+.stat-num{font-family:var(--mono);font-size:44px;font-weight:500;line-height:1;color:var(--indigo)}
+.stat-lbl{font-family:var(--display);font-size:18px;color:var(--fg);margin-top:8px}
+.stat-sub{font-size:14px;color:var(--muted);line-height:1.4}
+#impuestos .sec-head h2{font-size:clamp(32px,3.6vw,48px)}
+@media (max-width:420px){ .stats-row{grid-template-columns:1fr} }
 /* animaciones de entrada */
 .js .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
@@ -349,7 +376,7 @@ section,header{position:relative}
     <span class="wordmark">OIKOS</span>
     <div class="links">
       <a href="#ciclo">Cómo funciona</a>
-      <a href="#tablero">Tablero</a>
+      <a href="#tablero">Agenda</a>
       <a href="#impuestos">Impuestos</a>
       <a href="#reclamos">Reclamos</a>
       <a href="#portal">Portal</a>
@@ -382,22 +409,7 @@ section,header{position:relative}
         <div><strong>1 CVU</strong>por inquilino para cobrar</div>
       </div>
     </div>
-    <div class="screen hero-screen" id="heroScreen" aria-label="Panel de OIKOS con datos de ejemplo">
-      <div class="screen-bar"><i></i><i></i><i></i><span>oikos / inicio</span></div>
-      <div class="screen-body">
-        <div class="kpis">
-          <div class="kpi"><small>Cobrado 30 d</small><b>$48,2 M</b></div>
-          <div class="kpi"><small>Morosos</small><b>14</b></div>
-          <div class="kpi"><small>Por ajustar</small><b>38</b></div>
-        </div>
-        <div class="rows">
-          <div class="row"><span>Depto 3B · Nueva Córdoba</span><span class="num">$612.400</span><span class="pill p-ok">Cobrado</span></div>
-          <div class="row"><span>Local + cochera · Güemes</span><span class="num">$1.180.000</span><span class="pill p-warn">Mora 4 d</span></div>
-          <div class="row"><span>Casa · Cerro de las Rosas</span><span class="num">$955.000</span><span class="pill p-info">Ajusta dic.</span></div>
-          <div class="row"><span>Depto 1A · General Paz</span><span class="num">$487.900</span><span class="pill p-ok">Facturado</span></div>
-        </div>
-      </div>
-    </div>
+    <div class="screen img hero-screen hero-shot" id="heroScreen"><div class="screen-bar"><i></i><i></i><i></i><span>oikos / inicio</span></div><div class="fit"><img src="capturas/dashboard.webp" alt="Inicio de OIKOS con accesos, morosos, impuestos, contratos e índices"></div></div>
   </div>
 </header>
 
@@ -435,7 +447,7 @@ section,header{position:relative}
           <ul class="checks"><li>Partes, garantes, llaves y vencimientos</li><li>Inmuebles compuestos: local + cochera, un solo contrato</li><li>Una persona, una ficha, aunque sea inquilina y propietaria</li></ul></div>
         <div class="step"><span class="k">02 · Ajuste</span><h3>El aumento se calcula solo.</h3><p>Índices → Devengar → Revisar.</p>
           <ul class="checks"><li>IPC o ICL, con la periodicidad de cada contrato</li><li>Ajuste compuesto mes a mes</li><li>Avisos de contratos por ajustar</li></ul></div>
-        <div class="step"><span class="k">03 · Cobro</span><h3>Cada pago encuentra su contrato.</h3><p>Cobranza automática y conciliación asistida.</p>
+        <div class="step"><span class="k">03 · Cobro</span><h3>Cada pago encuentra su contrato.</h3><p>Cobranza automática e imputación asistida.</p>
           <ul class="checks"><li>CVU propio por inquilino con Banco Roela</li><li>SIRO descargado todos los días a las 9:30</li><li>Mora con tasa diaria y días de gracia configurables</li></ul></div>
         <div class="step"><span class="k">04 · Factura</span><h3>Facturás todo con ARCA.</h3><p>En lote, con revisión previa.</p>
           <ul class="checks"><li>Factura A, B y C, recibo X</li><li>Corregir en un paso: nota de crédito + factura nueva</li><li>Control del tope de monotributo</li></ul></div>
@@ -447,39 +459,12 @@ section,header{position:relative}
       <div class="stage-wrap">
         <div class="progress" id="progress"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="stage">
-          <div class="panel active"><div class="screen"><div class="screen-bar"><i></i><i></i><i></i><span>contratos / C-0412</span></div><div class="screen-body">
-            <div class="eyebrow">Contrato vigente</div>
-            <div class="panel-title">Depto 3B · Bv. San Juan 840</div>
-            <dl class="dl"><dt>Inquilina</dt><dd>Lucía Ferreyra</dd><dt>Propietario</dt><dd>Martín Ocampo · 100%</dd><dt>Vigencia</dt><dd class="num">03/2026 – 02/2029</dd><dt>Ajuste</dt><dd>IPC trimestral</dd><dt>Llaves</dt><dd>2 juegos en oficina</dd><dt>Garantía</dt><dd>Recibo de sueldo</dd></dl>
-            <div class="foot"><span>Cobertura documental completa</span><span class="pill p-ok">Vigente</span></div>
-          </div></div></div>
-          <div class="panel"><div class="screen"><div class="screen-bar"><i></i><i></i><i></i><span>índices / IPC</span></div><div class="screen-body">
-            <div class="flow"><b>Índices</b>→<b class="on">Devengar</b>→<b>Revisar</b></div>
-            <table class="tbl"><tr><th>Mes</th><th class="r">IPC</th></tr><tr><td>Agosto</td><td class="r">2,1%</td></tr><tr><td>Septiembre</td><td class="r">1,9%</td></tr><tr><td>Octubre</td><td class="r">2,3%</td></tr><tr class="total"><td>Ajuste compuesto</td><td class="r">6,44%</td></tr></table>
-            <div class="foot"><div><small>Nuevo alquiler desde nov.</small><div class="big">$612.400</div></div><span class="pill p-info">38 contratos</span></div>
-          </div></div></div>
-          <div class="panel"><div class="screen"><div class="screen-bar"><i></i><i></i><i></i><span>conciliación / extracto</span></div><div class="screen-body">
-            <table class="tbl"><tr><th>Movimiento</th><th class="r">Importe</th><th class="r">Contrato</th></tr>
-            <tr><td>CVU · L. Ferreyra</td><td class="r">612.400</td><td class="r"><span class="pill p-ok">C-0412</span></td></tr>
-            <tr><td>SIRO · lote 20/11</td><td class="r">1.180.000</td><td class="r"><span class="pill p-ok">C-0388</span></td></tr>
-            <tr><td>Depósito 00981</td><td class="r">487.900</td><td class="r"><span class="pill p-ok">C-0207</span></td></tr>
-            <tr><td>Sin referencia</td><td class="r">95.000</td><td class="r"><span class="pill p-warn">Revisar</span></td></tr></table>
-            <div class="foot"><span>Vista "Así quedaría imputado"</span><span class="pill p-ok">212 de 216</span></div>
-          </div></div></div>
-          <div class="panel"><div class="screen"><div class="screen-bar"><i></i><i></i><i></i><span>facturación / noviembre</span></div><div class="screen-body">
-            <div><small class="small">Emitiendo lote con ARCA</small><div class="big">312 <span style="color:var(--soft);font-size:20px">de 412</span></div></div>
-            <div class="bar"><i></i></div>
-            <table class="tbl"><tr><td>Factura B 0003-00018841</td><td class="r"><span class="pill p-ok">Emitida</span></td></tr><tr><td>Factura A 0004-00002210</td><td class="r"><span class="pill p-ok">Emitida</span></td></tr><tr><td>Factura B 0003-00018843</td><td class="r"><span class="pill p-warn">Reintentando</span></td></tr><tr><td>NC B 0003-00000412</td><td class="r"><span class="pill p-info">Corrección</span></td></tr></table>
-          </div></div></div>
-          <div class="panel"><div class="screen"><div class="screen-bar"><i></i><i></i><i></i><span>liquidaciones / M. Ocampo</span></div><div class="screen-body">
-            <table class="tbl"><tr><td>Alquiler cobrado</td><td class="r">612.400</td></tr><tr><td>Honorarios 5%</td><td class="r">−30.620</td></tr><tr><td>Plomero · ticket 231</td><td class="r">−42.000</td></tr><tr><td>Rentas Córdoba</td><td class="r">−18.350</td></tr><tr class="total"><td>Neto a transferir</td><td class="r">521.430</td></tr></table>
-            <div class="foot"><span>Archivo de pagos + email con PDF</span><span class="pill p-ok">Listo</span></div>
-          </div></div></div>
-          <div class="panel"><div class="screen"><div class="screen-bar"><i></i><i></i><i></i><span>caja / cierre del día</span></div><div class="screen-body">
-            <div class="flow"><b>1 · Arqueo</b>→<b class="on">2 · Confirmar</b></div>
-            <table class="tbl"><tr><th>Medio</th><th class="r">Sistema</th><th class="r">Arqueo</th></tr><tr><td>Efectivo</td><td class="r">1.240.000</td><td class="r">1.240.000</td></tr><tr><td>Cheques</td><td class="r">2.105.000</td><td class="r">2.105.000</td></tr><tr><td>Transferencias</td><td class="r">9.880.300</td><td class="r">9.880.300</td></tr></table>
-            <div class="foot"><span>Caja de Laura P.</span><span class="pill p-ok">Sin diferencias</span></div>
-          </div></div></div>
+          <div class="panel active"><div class="screen img"><div class="screen-bar"><i></i><i></i><i></i><span>contratos / Bv. San Juan 840</span></div><div class="fit"><img src="capturas/contrato-detalle.webp" alt="Ficha de contrato en OIKOS"></div></div></div>
+          <div class="panel"><div class="screen img"><div class="screen-bar"><i></i><i></i><i></i><span>cierre de mes / devengar</span></div><div class="fit"><img src="capturas/indices-ajuste.webp" alt="Cierre de mes: índices, devengado y resultado"></div></div></div>
+          <div class="panel"><div class="screen img"><div class="screen-bar"><i></i><i></i><i></i><span>cobrar / importación bancaria</span></div><div class="fit"><img src="capturas/conciliacion.webp" alt="Imputación de un pago del banco"></div></div></div>
+          <div class="panel"><div class="screen img"><div class="screen-bar"><i></i><i></i><i></i><span>facturación / revisar lote</span></div><div class="fit"><img src="capturas/facturacion-lote.webp" alt="Revisión de un lote de facturas"></div></div></div>
+          <div class="panel"><div class="screen img"><div class="screen-bar"><i></i><i></i><i></i><span>liquidaciones</span></div><div class="fit"><img src="capturas/liquidacion-detalle.webp" alt="Liquidación a propietario"></div></div></div>
+          <div class="panel"><div class="screen img"><div class="screen-bar"><i></i><i></i><i></i><span>caja / cerrar caja</span></div><div class="fit"><img src="capturas/caja-cierre.webp" alt="Cierre de caja con arqueo"></div></div></div>
         </div>
       </div>
     </div>
@@ -490,28 +475,13 @@ section,header{position:relative}
 <section class="alt sec" id="tablero">
   <div class="wrap">
     <div class="sec-head center">
-      <div class="eyebrow">Tablero</div>
-      <h2>Toda la inmobiliaria en una pantalla.</h2>
-      <p>Cobranza, mora, vencimientos y reclamos apenas entrás.</p>
+      <div class="eyebrow">Día a día</div>
+      <h2>Todo lo que vence, a la vista.</h2>
+      <p>Vencimientos, ajustes y visitas en la agenda. Cualquier persona, inmueble o contrato a un buscador de distancia.</p>
     </div>
-    <div class="screen dash rv" id="dash">
-      <div class="screen-bar"><i></i><i></i><i></i><span>oikos / tablero</span><div class="tabs"><b>Hoy</b><b>7 días</b><b class="on">30 días</b></div></div>
-      <div class="screen-body">
-        <div class="tile"><small>Cobrado</small><b>$48,2 M</b><span class="pill p-ok" style="align-self:start">+6,1%</span></div>
-        <div class="tile"><small>Contratos morosos</small><b>14</b><span class="pill p-warn" style="align-self:start">3 nuevos</span></div>
-        <div class="tile"><small>Impuestos por verificar</small><b>27</b><span class="pill p-info" style="align-self:start">Mesa de boletas</span></div>
-        <div class="tile"><small>Por vencer o ajustar</small><b>38</b><span class="pill p-mute" style="align-self:start">próx. 60 días</span></div>
-        <div class="tile wide"><small>Cobranza · últimos 30 días</small><div class="chart" id="chart30"></div></div>
-        <div class="tile"><small>Reclamos por estado</small>
-          <div class="hbars">
-            <div><span>Nuevos</span><span class="t"><i style="--w:45%;background:var(--indigo)"></i></span><span class="num">9</span></div>
-            <div><span>En curso</span><span class="t"><i style="--w:70%;background:var(--miel)"></i></span><span class="num">14</span></div>
-            <div><span>Esperando</span><span class="t"><i style="--w:25%;background:var(--soft)"></i></span><span class="num">5</span></div>
-            <div><span>Cerrados</span><span class="t"><i style="--w:92%;background:var(--menta)"></i></span><span class="num">61</span></div>
-          </div></div>
-        <div class="tile"><small>Mapa de propiedades</small>
-          <div class="mapdots"><i style="left:18%;top:30%"></i><i style="left:42%;top:52%"></i><i class="w" style="left:60%;top:22%"></i><i style="left:70%;top:64%"></i><i style="left:30%;top:72%"></i><i class="w" style="left:84%;top:40%"></i><i style="left:52%;top:36%"></i></div></div>
-      </div>
+    <div class="duo">
+      <div class="screen img rv"><div class="screen-bar"><i></i><i></i><i></i><span>calendario</span></div><div class="fit"><img src="capturas/calendario.webp" alt="Calendario mensual con vencimientos y ajustes" loading="lazy"></div></div>
+      <div class="screen img rv" style="--d:.12s"><div class="screen-bar"><i></i><i></i><i></i><span>buscador</span></div><div class="fit"><img src="capturas/buscador-global.webp" alt="Buscador global con resultados de personas y contratos" loading="lazy"></div></div>
     </div>
     <div class="reports">
       <span>Recupero <em>Excel</em></span><span>Clasificación contable</span><span>Cobrado y pagado por cuenta <em>Excel</em></span><span>Cobertura documental</span><span>Libro banco <em>365 días</em></span><span>Libro IVA <em>Excel</em></span>
@@ -521,34 +491,25 @@ section,header{position:relative}
 
 <!-- S5 IMPUESTOS -->
 <section class="sec" id="impuestos">
-  <div class="wrap split">
-    <div class="sec-head">
-      <div class="eyebrow">Impuestos y servicios</div>
-      <h2>Escaneás la boleta. OIKOS hace el resto.</h2>
-      <div style="display:flex;align-items:baseline;gap:14px;margin-top:6px"><span class="stat-big" data-count="29">29</span><span style="color:var(--muted)">entes precargados: Rentas de cada provincia, EPEC, Aguas Cordobesas, Ecogas y la Municipalidad de Córdoba.</span></div>
-      <ul class="checks" style="margin-top:10px">
-        <li><span><b>Código de barras</b> por pistola, cámara del celular o PDF, hasta 50 boletas por vez</span></li>
-        <li><span><b>Mesa de boletas</b> que aprende el formato de cada ente</span></li>
-        <li><span><b>Reparto por días</b> de ocupación entre inquilino y propietario</span></li>
-        <li><span><b>Recupero automático</b> con cargo en la cuenta del inquilino</span></li>
-        <li><span><b>Pago en lote</b> con caja de origen y talón impreso</span></li>
-      </ul>
-    </div>
-    <div class="screen rv">
-      <div class="screen-bar"><i></i><i></i><i></i><span>impuestos / mesa de boletas</span></div>
-      <div class="screen-body">
-        <div class="scan"><div class="barcode"></div><div><b>Leyendo boleta…</b><div class="small">EPEC · NIS 8841203 · vence 28/11</div></div></div>
-        <table class="tbl">
-          <tr><th>Ente</th><th>Inmueble</th><th class="r">Importe</th><th class="r">Estado</th></tr>
-          <tr><td>Rentas Córdoba</td><td>Depto 3B</td><td class="r">18.350</td><td class="r"><span class="pill p-ok">Al día</span></td></tr>
-          <tr><td>EPEC</td><td>Local Güemes</td><td class="r">64.120</td><td class="r"><span class="pill p-info">Recupero</span></td></tr>
-          <tr><td>Aguas Cordobesas</td><td>Casa Cerro</td><td class="r">22.800</td><td class="r"><span class="pill p-warn">Con deuda</span></td></tr>
-          <tr><td>Ecogas</td><td>Depto 1A</td><td class="r">15.430</td><td class="r"><span class="pill p-ok">Al día</span></td></tr>
-          <tr><td>Municipalidad</td><td>Local Güemes</td><td class="r">31.900</td><td class="r"><span class="pill p-mute">Sin dato</span></td></tr>
-        </table>
-        <div class="foot"><span>5 boletas · $152.600</span><span class="btn btn-primary" style="padding:8px 14px;font-size:13px">Pagar en lote</span></div>
+  <div class="wrap">
+    <div class="split">
+      <div class="sec-head">
+        <div class="eyebrow">Impuestos y servicios</div>
+        <h2>Escaneás la boleta. OIKOS hace el resto.</h2>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-num" data-count="29">29</span><span class="stat-lbl">entes precargados</span><span class="stat-sub">Rentas, EPEC, Aguas Cordobesas, Ecogas, Municipalidad</span></div>
+          <div class="stat"><span class="stat-num" data-count="50">50</span><span class="stat-lbl">boletas por escaneo</span><span class="stat-sub">Pistola, cámara del celular o PDF</span></div>
+        </div>
+        <ul class="checks" style="margin-top:10px">
+                    <li><span><b>Avance por ente</b> para saber qué boletas faltan cargar</span></li>
+          <li><span><b>Reparto por días</b> de ocupación entre inquilino y propietario</span></li>
+          <li><span><b>Recupero automático</b> con cargo en la cuenta del inquilino</span></li>
+          <li><span><b>Pago en lote</b> con caja de origen y talón impreso</span></li>
+        </ul>
       </div>
+      <div class="screen img rv"><div class="screen-bar"><i></i><i></i><i></i><span>impuestos / mesa</span></div><div class="fit"><img src="capturas/impuestos-mesa-boletas.webp" alt="Mesa de boletas con avance por ente" loading="lazy"></div></div>
     </div>
+    <div style="margin-top:24px"><div class="screen img rv wide-shot"><div class="screen-bar"><i></i><i></i><i></i><span>impuestos / planes</span></div><div class="fit"><img src="capturas/impuestos-listado.webp" alt="Planes de impuestos por inmueble con estado al día, con deuda o sin dato" loading="lazy"></div></div></div>
   </div>
 </section>
 
@@ -558,39 +519,13 @@ section,header{position:relative}
     <div class="sec-head">
       <div class="eyebrow">Reclamos y mantenimiento</div>
       <h2>Del "se rompió algo" a la factura del plomero.</h2>
-      <p>Cada arreglo con número, responsable, visita y quién paga.</p>
+      <p>Cada arreglo con número, prioridad, responsable, visita y quién paga. Las notas internas no las ve el inquilino.</p>
     </div>
-    <div class="rec-grid">
-      <div class="screen rv">
-        <div class="screen-bar"><i></i><i></i><i></i><span>reclamos / tablero</span></div>
-        <div class="screen-body">
-          <div class="kanban">
-            <div class="col"><h4>Nuevos <span>9</span></h4>
-              <div class="tk"><div class="top"><span>#231</span><span class="pill p-bad">Alta</span></div>Pérdida en el baño<span class="small">Depto 3B</span></div>
-              <div class="tk"><div class="top"><span>#236</span><span class="pill p-mute">Baja</span></div>Persiana trabada<span class="small">Casa Cerro</span></div></div>
-            <div class="col"><h4>En curso <span>14</span></h4>
-              <div class="tk"><div class="top"><span>#219</span><span class="pill p-warn">Media</span></div>Termotanque<span class="small">Visita jue · tarde</span></div>
-              <div class="tk"><div class="top"><span>#224</span><span class="pill p-bad">Alta</span></div>Sin luz en cocina<span class="small">Local Güemes</span></div></div>
-            <div class="col"><h4>Esperando <span>5</span></h4>
-              <div class="tk"><div class="top"><span>#208</span><span class="pill p-warn">Media</span></div>Humedad en pared<span class="small">Presupuesto</span></div></div>
-            <div class="col"><h4>Cerrados <span>61</span></h4>
-              <div class="tk"><div class="top"><span>#201</span><span class="pill p-ok">Liberado</span></div>Cerradura<span class="small">70% prop. · 30% inq.</span></div></div>
-          </div>
-          <div class="flow" style="margin-top:auto"><b>Pendiente de factura</b>→<b>Facturado</b>→<b class="on">Auditado</b>→<b>Liberado</b></div>
-        </div>
-      </div>
-      <div class="screen rv" style="--d:.15s">
-        <div class="screen-bar"><i></i><i></i><i></i><span>reclamo #231</span></div>
-        <div class="screen-body">
-          <div class="chat">
-            <div class="msg">Hay una pérdida debajo del lavatorio, adjunto foto.<div class="photo"></div><small>Inquilina · 09:12</small></div>
-            <div class="msg me">Gracias Lucía, el plomero pasa mañana entre 9 y 12.<small>Administración · 09:40</small></div>
-            <div class="msg int">Nota interna: cobrar 100% al propietario, caño de origen.<small>Solo equipo · 09:41</small></div>
-          </div>
-          <div class="foot"><span>Visible para el inquilino: no</span><span class="pill p-info">Prioridad alta</span></div>
-        </div>
-      </div>
+    <div class="duo">
+      <div class="screen img rv"><div class="screen-bar"><i></i><i></i><i></i><span>reclamos</span></div><div class="fit"><img src="capturas/reclamos-tablero.webp" alt="Listado de reclamos por estado" loading="lazy"></div></div>
+      <div class="screen img rv" style="--d:.12s"><div class="screen-bar"><i></i><i></i><i></i><span>reclamos / detalle</span></div><div class="fit"><img src="capturas/reclamo-detalle-chat.webp" alt="Reclamo con chat y nota interna" loading="lazy"></div></div>
     </div>
+    <div class="flow" style="justify-content:center;margin-top:28px;font-size:14px"><b>Pendiente de factura</b>→<b>Facturado</b>→<b class="on">Auditado</b>→<b>Liberado</b></div>
   </div>
 </section>
 
@@ -603,31 +538,9 @@ section,header{position:relative}
       <p>Cada inquilino y propietario entra con su documento, por invitación de la inmobiliaria.</p>
     </div>
     <div class="phones">
-      <div class="phone rv">
-        <div class="notch"></div>
-        <div class="ph-head"><span class="wm">OIKOS</span><span class="label">Inquilino</span></div>
-        <div class="pc"><small>Saldo a pagar</small><span class="amt">$612.400</span><small>Vence el 10/11</small></div>
-        <div class="pc"><small>Tu CVU para transferir</small><span class="num" style="font-size:13px">0000 1234 5678 9012 3456 78</span><small>alias: depto3b.sanjuan</small></div>
-        <div class="pc"><small>Próximos vencimientos</small><div class="li"><span>Ajuste IPC</span><span class="num">01/02</span></div><div class="li"><span>Fin de contrato</span><span class="num">02/2029</span></div></div>
-        <div class="cta">Informar pago</div>
-      </div>
-      <div class="phone rv" style="--d:.12s">
-        <div class="notch"></div>
-        <div class="ph-head"><span class="wm">OIKOS</span><span class="label">Reclamo</span></div>
-        <div class="pc"><small>#231 · Pérdida en el baño</small><span class="pill p-info" style="align-self:start;margin-top:4px">En curso</span></div>
-        <div class="chat">
-          <div class="msg">Adjunto foto de la pérdida.<div class="photo" style="width:100%;height:70px"></div><small>Vos · 09:12</small></div>
-          <div class="msg me">El plomero pasa mañana de 9 a 12.<small>Inmobiliaria · 09:40</small></div>
-        </div>
-        <div class="cta">Escribir mensaje</div>
-      </div>
-      <div class="phone rv" style="--d:.24s">
-        <div class="notch"></div>
-        <div class="ph-head"><span class="wm">OIKOS</span><span class="label">Propietario</span></div>
-        <div class="pc"><small>Liquidación octubre</small><span class="amt">$521.430</span><small>Transferido el 14/11</small></div>
-        <div class="pc"><small>Detalle</small><div class="li"><span>Alquiler</span><span class="num">612.400</span></div><div class="li"><span>Honorarios</span><span class="num">−30.620</span></div><div class="li"><span>Arreglos</span><span class="num">−42.000</span></div><div class="li"><span>Impuestos</span><span class="num">−18.350</span></div></div>
-        <div class="cta">Descargar PDF</div>
-      </div>
+      <div class="phone img rv"><img src="capturas/portal-inquilino-inicio.webp" alt="Portal del inquilino: saldo, reclamos, servicios y contrato"></div>
+      <div class="phone img rv" style="--d:.12s"><img src="capturas/portal-inquilino-reclamo.webp" alt="Reclamo visto por el inquilino"></div>
+      <div class="phone img rv" style="--d:.24s"><img src="capturas/portal-propietario-liquidaciones.webp" alt="Liquidaciones vistas por el propietario"></div>
     </div>
     <div class="roles">
       <div class="card rv"><span class="k">Inquilinos</span><h3>Todo su alquiler, en el bolsillo</h3>
@@ -646,23 +559,12 @@ section,header{position:relative}
       <h2>Las herramientas que tu equipo usa todos los días.</h2>
     </div>
     <div class="bento">
-      <div class="card w3 rv"><span class="k">Buscador global</span><h3>Encontrá cualquier cosa por domicilio</h3><p>Tolera errores de tipeo y acentos. También busca por código de Roela.</p>
-        <div class="viz"><div class="search"><span style="color:var(--soft)">⌕</span>san juan 84<span class="cur"></span></div>
-          <div class="li" style="display:flex;justify-content:space-between"><span>Bv. San Juan 840 · Depto 3B</span><span class="pill p-info">Contrato</span></div>
-          <div class="li" style="display:flex;justify-content:space-between"><span>Bv. San Juan 846 · Local</span><span class="pill p-mute">Inmueble</span></div></div></div>
-      <div class="card w3 rv" style="--d:.1s"><span class="k">Calendario</span><h3>Vencimientos y ajustes, solos en la agenda</h3><p>Los eventos se crean automáticamente desde cada contrato.</p>
-        <div class="viz"><div class="cal">
-          <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
-          <span>1</span><span class="e">2</span><span>3</span><span>4</span><span class="a">5</span><span>6</span><span>7</span>
-          <span>8</span><span>9</span><span class="e">10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-          <span class="a">15</span><span>16</span><span>17</span><span class="e">18</span><span>19</span><span>20</span><span>21</span>
-        </div><div class="small"><span class="pill p-info">Vencimiento</span> <span class="pill p-warn">Ajuste</span></div></div></div>
-      <div class="card rv"><span class="k">Consulta crediticia</span><h3>Evaluá al inquilino antes de firmar</h3>
-        <div class="viz"><div class="score"><div class="gauge"><b>720</b></div><div><b>Riesgo bajo</b><div class="small">Sin deudas informadas</div></div></div></div></div>
-      <div class="card rv" style="--d:.1s"><span class="k">Comisiones</span><h3>Planes de pagarés con su cartera</h3>
-        <div class="viz"><div style="display:flex;justify-content:space-between"><span>Pagaré 1 de 3</span><span class="pill p-ok">Cobrado</span></div><div style="display:flex;justify-content:space-between"><span>Pagaré 2 de 3</span><span class="pill p-warn">Vence 10/12</span></div><div style="display:flex;justify-content:space-between"><span>Pagaré 3 de 3</span><span class="pill p-mute">10/01</span></div></div></div>
-      <div class="card rv" style="--d:.2s"><span class="k">Email propio</span><h3>Avisos con el nombre de tu inmobiliaria</h3>
-        <div class="viz"><div style="display:flex;justify-content:space-between"><span>Liquidación octubre</span><span class="pill p-ok">Entregado</span></div><div style="display:flex;justify-content:space-between"><span>Invitación al portal</span><span class="pill p-ok">Entregado</span></div><div style="display:flex;justify-content:space-between"><span>Aviso de mora</span><span class="pill p-info">Plantilla</span></div></div></div>
+      <div class="card rv"><span class="k">Consulta crediticia</span><h3>Evaluá al inquilino antes de firmar</h3><p>Desde la ficha de la persona.</p></div>
+      <div class="card rv" style="--d:.1s"><span class="k">Comisiones</span><h3>Planes de pagarés con su cartera</h3><p>Cuotas, recargos y vencimientos a la vista.</p></div>
+      <div class="card rv" style="--d:.2s"><span class="k">Email propio</span><h3>Avisos con el nombre de tu inmobiliaria</h3><p>Plantillas y bitácora de envíos.</p></div>
+      <div class="card rv"><span class="k">Inmuebles compuestos</span><h3>Local + cochera, un solo contrato</h3><p>Sin duplicar cargos ni liquidaciones.</p></div>
+      <div class="card rv" style="--d:.1s"><span class="k">Proveedores</span><h3>Órdenes de pago por inmueble</h3><p>Cada arreglo imputado donde corresponde.</p></div>
+      <div class="card rv" style="--d:.2s"><span class="k">Importadores</span><h3>Excel y TXT de bancos</h3><p>SIRO, TIM de Roela y cupones Galicia.</p></div>
     </div>
   </div>
 </section>
@@ -674,32 +576,9 @@ section,header{position:relative}
       <div class="eyebrow">Control</div>
       <h2>Cada uno ve lo suyo. Todo queda registrado.</h2>
     </div>
-    <div class="split" style="margin-top:64px;align-items:stretch">
-      <div class="screen rv">
-        <div class="screen-bar"><i></i><i></i><i></i><span>configuración / roles</span></div>
-        <div class="screen-body">
-          <table class="perm">
-            <tr><th>Área</th><th>Admin</th><th>Cobranza</th><th>Manten.</th></tr>
-            <tr><td>Contratos</td><td><span class="dot on"></span></td><td><span class="dot on"></span></td><td><span class="dot"></span></td></tr>
-            <tr><td>Cobranzas</td><td><span class="dot on"></span></td><td><span class="dot on"></span></td><td><span class="dot"></span></td></tr>
-            <tr><td>Reclamos</td><td><span class="dot on"></span></td><td><span class="dot"></span></td><td><span class="dot on"></span></td></tr>
-            <tr><td>Facturación ARCA</td><td><span class="dot on"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
-            <tr><td>Configuración</td><td><span class="dot on"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
-          </table>
-          <div class="foot"><span>Roles a medida por inmobiliaria</span><span class="pill p-info">3 roles</span></div>
-        </div>
-      </div>
-      <div class="screen rv" style="--d:.15s">
-        <div class="screen-bar"><i></i><i></i><i></i><span>auditoría</span></div>
-        <div class="screen-body">
-          <div class="audit">
-            <div class="ev"><span class="who">20/11 10:42<br>Laura P.</span><div>Contrato C-0412 · Monto<br><del>$575.300</del> → <ins>$612.400</ins></div></div>
-            <div class="ev"><span class="who">20/11 09:15<br>Diego R.</span><div>Mora · Días de gracia<br><del>5</del> → <ins>3</ins></div></div>
-            <div class="ev"><span class="who">19/11 18:03<br>Admin</span><div>Rol Mantenimiento · Reclamos<br><del>Ver</del> → <ins>Editar</ins></div></div>
-          </div>
-          <div class="foot"><span>Antes y después de cada cambio</span><span class="pill p-mute">Filtrable</span></div>
-        </div>
-      </div>
+    <div class="duo">
+      <div class="screen img rv"><div class="screen-bar"><i></i><i></i><i></i><span>configuración / roles</span></div><div class="fit"><img src="capturas/roles-permisos.webp" alt="Editor de rol con permisos por módulo" loading="lazy"></div></div>
+      <div class="screen img rv" style="--d:.12s"><div class="screen-bar"><i></i><i></i><i></i><span>configuración / mora</span></div><div class="fit"><img src="capturas/config.webp" alt="Configuración de mora: tasa diaria, vencimiento y días de gracia" loading="lazy"></div></div>
     </div>
     <div class="sec-grid">
       <div class="card rv"><span class="k">Datos separados</span><h3>Cada inmobiliaria, aislada</h3><p>Tus datos viven separados a nivel de base de datos.</p></div>
@@ -722,17 +601,6 @@ section,header{position:relative}
       <div class="mstep rv" style="--d:.12s"><span class="n">02</span><b>Corremos en paralelo</b><p>Comparás saldos contrato por contrato antes de cambiar.</p></div>
       <div class="mstep rv" style="--d:.24s"><span class="n">03</span><b>Capacitamos al equipo</b><p>Por rol, con tus propios contratos.</p></div>
       <div class="mstep rv" style="--d:.36s"><span class="n">04</span><b>Apagás lo viejo</b><p>Cuando todo coincide, operás solo en OIKOS.</p></div>
-    </div>
-    <div class="screen compare rv">
-      <div class="screen-bar"><i></i><i></i><i></i><span>migración / control de saldos</span></div>
-      <div class="screen-body">
-        <table class="tbl">
-          <tr><th>Contrato</th><th class="r">Sistema anterior</th><th class="r">OIKOS</th><th class="r">Diferencia</th></tr>
-          <tr><td>C-0412 · Depto 3B</td><td class="r">612.400</td><td class="r">612.400</td><td class="r"><span class="pill p-ok">0</span></td></tr>
-          <tr><td>C-0388 · Local Güemes</td><td class="r">1.180.000</td><td class="r">1.180.000</td><td class="r"><span class="pill p-ok">0</span></td></tr>
-          <tr><td>C-0207 · Depto 1A</td><td class="r">487.900</td><td class="r">487.900</td><td class="r"><span class="pill p-ok">0</span></td></tr>
-        </table>
-      </div>
     </div>
   </div>
 </section>
@@ -768,7 +636,7 @@ section,header{position:relative}
   // gráfico de cobranza (datos de ejemplo)
   var vals = [32,45,38,60,72,55,40,28,35,50,66,80,92,70,48,36,42,58,64,75,88,95,60,44,38,52,68,74,82,90];
   var ch = document.getElementById('chart30');
-  ch.innerHTML = vals.map(function(v,i){ return '<i' + (i % 7 === 5 || i % 7 === 6 ? ' class="alt"' : '') + ' style="--s:' + (v/100) + ';--dl:' + (i*0.025) + 's"></i>'; }).join('');
+  if (ch) ch.innerHTML = vals.map(function(v,i){ return '<i' + (i % 7 === 5 || i % 7 === 6 ? ' class="alt"' : '') + ' style="--s:' + (v/100) + ';--dl:' + (i*0.025) + 's"></i>'; }).join('');
 
   // texto que se revela
   var rt = document.getElementById('revealText');
