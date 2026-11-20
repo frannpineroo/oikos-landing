@@ -420,7 +420,9 @@ footer .wordmark{color:var(--ink-fg);font-size:15px}
 .who2 dd{margin:0;color:var(--muted)}
 .phones2{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
 .phones2 .phone{margin:0}
-.phones2{align-items:stretch;transform:translateY(calc((0.5 - var(--p,.5)) * 70px))}
+.phones2{align-items:start;transform:translateY(calc((0.5 - var(--p,.5)) * 70px))}
+.phones2 .phone{aspect-ratio:auto;height:auto;width:100%}
+.phones2 .phone.img img{height:auto;aspect-ratio:780/1688}
 @media (max-width:960px){ .portal2{grid-template-columns:1fr} }
 
 /* índice editorial */
@@ -670,9 +672,9 @@ section,header{position:relative}
       </dl>
     </div>
     <div class="phones2" data-p>
-      <div class="phone img ph1"><img src="capturas/portal-inquilino-inicio.webp" alt="Portal del inquilino: saldo, reclamos, servicios y contrato" loading="lazy"></div>
-      <div class="phone img ph2"><img src="capturas/portal-inquilino-reclamo.webp" alt="Reclamo visto por el inquilino" loading="lazy"></div>
-      <div class="phone img ph3"><img src="capturas/portal-propietario-liquidaciones.webp" alt="Liquidaciones vistas por el propietario" loading="lazy"></div>
+      <div class="phone img ph1"><img src="capturas/portal-inquilino-inicio.webp" decoding="async" alt="Portal del inquilino: saldo, reclamos, servicios y contrato"></div>
+      <div class="phone img ph2"><img src="capturas/portal-inquilino-reclamo.webp" decoding="async" alt="Reclamo visto por el inquilino"></div>
+      <div class="phone img ph3"><img src="capturas/portal-propietario-liquidaciones.webp" decoding="async" alt="Liquidaciones vistas por el propietario"></div>
     </div>
   </div>
 </section>
